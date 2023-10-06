@@ -58,3 +58,9 @@
     align-items: center;
     flex-direction: column;
 }
+
+.pageChange {
+    position:absolute;
+    top:120px;
+    right:30px;
+}
