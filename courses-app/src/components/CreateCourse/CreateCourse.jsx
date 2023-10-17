@@ -1,30 +1,47 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import CreateAuthor from './components/CreateAuthor/CreateAuthor';
 
-function CreateCourse() {
-	const textTitle = useRef();
-	const textDescription = useRef();
+function CreateCourse(props) {
+	const [title, setTitle] = useState();
+	const [description, setDescription] = useState();
 
-	const submit = (e) => {
+	const handleChangeTitle = (e) => {
+		setTitle(e.target.value);
+	};
+	const handleChangeDescription = (e) => {
+		setDescription(e.target.value);
+	};
+
+	const handleSubmit = (e) => {
 		e.preventDefault();
-		const title = textTitle.current.value;
-		const description = textDescription.current.value;
-		alert(`${title}\n${description}\n`);
-		textTitle.current.value = '';
-		textDescription.current.value = '';
+		// const newCourse = {
+		// 	id: uuidv4(),
+		// 	title: title,
+		// 	description: description,
+		// };
+		// props.onSubmit(newCourse);
+		alert(
+			`The course with the title of: ${title}\n Will be created with the following description: ${description}\n`
+		);
 	};
 	return (
 		<>
-			<form className='CreateCourse' onSubmit={submit}>
+			<form className='CreateCourse' onSubmit={handleSubmit}>
 				<div>
-					<p>Title:</p>
-					<input ref={textTitle} type='text' placeholder='Enter title...' />
-
+					<p>Title: </p>
+					<input
+						type='text'
+						placeholder='Enter title...'
+						name='title'
+						onChange={handleChangeTitle}
+					/>
 					<button>Create Course</button>
 					<p>Description</p>
 					<textarea
-						ref={textDescription}
 						placeholder='Enter Description'
+						name='description'
+						onChange={handleChangeDescription}
 					></textarea>
 				</div>
 			</form>

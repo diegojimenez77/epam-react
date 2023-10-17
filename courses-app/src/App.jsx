@@ -1,8 +1,8 @@
 import './App.css';
 import Courses from './components/Courses/Courses';
 import Header from './components/Header/Header';
-import CreateCourse from './components/CreateCourse/CreateCourse';
 import { useState } from 'react';
+import CreateCourse from './components/CreateCourse/CreateCourse';
 
 function App() {
 	const [status, setStatus] = useState('Create Course');
@@ -15,7 +15,7 @@ function App() {
 					className='pageChange'
 					onClick={() => {
 						if (status === 'Create Course') {
-							setStatus('Display Course');
+							setStatus('Display Courses');
 						} else setStatus('Create Course');
 					}}
 				>
@@ -32,7 +32,7 @@ function App() {
 					className='pageChange'
 					onClick={() => {
 						if (status === 'Create Course') {
-							setStatus('Display Course');
+							setStatus('Display Courses');
 						} else setStatus('Create Course');
 					}}
 				>

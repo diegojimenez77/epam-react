@@ -1,0 +1,13 @@
+.CourseTitleDesc {
+	width: 70%;
+}
+
+.CourseADC {
+	width: 30%;
+}
+
+.Ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

@@ -34,22 +34,22 @@ function CreateAuthor() {
 				</div>
 				<div className='AuthorsList'>
 					<h2>Authors</h2>
-					<label for='1'>Vasily Dobkin</label>
-					<button id='1' value='1'>
-						Add author
-					</button>
-					<label form='2'>Nocolas Kim</label>
-					<button id='2' value='2'>
-						Add author
-					</button>
-					<label for='3'>Anna Sidorenko</label>
-					<button id='3' value='3'>
-						Add author
-					</button>
-					<label for='4'>Valentina Larina</label>
-					<button id='4' value='4'>
-						Add author
-					</button>
+					<div>
+						<label htmlFor='1'>Vasily Dobkin </label>
+						<input type='button' id='1' value='Add author' />
+					</div>
+					<div>
+						<label htmlFor='2'>Nocolas Kim </label>
+						<input type='button' id='2' value='Add author' />
+					</div>
+					<div>
+						<label htmlFor='3'>Anna Sidorenko </label>
+						<input type='button' id='3' value='Add author' />
+					</div>
+					<div>
+						<label htmlFor='4'>Valentina Larina </label>
+						<input type='button' id='4' value='Add author' />
+					</div>
 				</div>
 			</form>
 		</>

@@ -1,7 +1,10 @@
 import React from 'react';
-import Button from '../../Header/components/Button/Button';
+import Button from '../../../common/Button/Button';
 import mockedCoursesList from '../mockedCoursesList';
 import mockedAuthorsList from '../mockedAuthorsList';
+import Duration from '../../../helpers/getCourseDuration';
+import FormatCreationDate from '../../../helpers/formatCreationDate';
+import './CourseCard.css';
 
 function List({ data, renderItem, renderEmpty }) {
 	return !data.length ? (
@@ -19,13 +22,22 @@ function Authors({ data, renderItem, renderEmpty }) {
 	return !data.length ? (
 		renderEmpty
 	) : (
-		<div>
+		<div className='Ellipsis'>
 			{data.map((item) => (
-				<div key={item.id}>{renderItem(item)}</div>
+				<span key={item.id}>{renderItem(item)}, </span>
 			))}
 		</div>
 	);
 }
+
+// function getNameById(id) {
+// 	for (let i = 0; i < mockedAuthorsList.length; i++) {
+// 		if (mockedAuthorsList[i].id === id) {
+// 			return mockedAuthorsList[i].name;
+// 		}
+// 	}
+// 	return null;
+// }
 
 function CourseCard() {
 	return (
@@ -35,21 +47,27 @@ function CourseCard() {
 			renderItem={(item) => (
 				<>
 					<div className='CourseCard'>
-						<div>
-							<h1>Title: {item.title}</h1>
-							<p>Description: {item.description}</p>
+						<div className='CourseTitleDesc'>
+							<h1>{item.title}</h1>
+							<p>{item.description}</p>
 						</div>
-						<div>
-							<h4>
-								Autors:{' '}
+						<div className='CourseADC'>
+							<div>
+								<b>Autors: </b>
 								<Authors
 									data={mockedAuthorsList}
 									renderEmpty={<p>This list is empty</p>}
-									renderItem={(item) => <>{item.name}</>}
+									renderItem={(item) => item.name}
 								/>
-							</h4>
-							<h4>Duration: {item.duration}</h4>
-							<h4>Created: {item.creationDate}</h4>
+							</div>
+							<p>
+								<b>Duration:</b>
+								<Duration duration={item.duration} />
+							</p>
+							<p>
+								<b>Created:</b>
+								<FormatCreationDate date={item.creationDate} />
+							</p>
 							<Button buttonText={'Show course'} />
 						</div>
 					</div>
